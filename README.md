@@ -62,16 +62,13 @@ There are many ways of sending commands to the device I recommend an app called 
 I have also designed a custom stylized app for Tizen to interface with the Arduino.
 
 # Contributing
-Contributions are welcome, if you find an issue or want to propose a new feature please submit a pull request.
-
-## Areas to Improvement
-### Security
-There isn't a whole lot of cryptography here and I don't have a great understanding of bluetooth.
-It may be possible that someone could capture and then relay messages sent to the device. I have no experience in this so if somebody would like to improve upon this please do.
+Contributions are welcome, for more information including areas that I have identified that could be improved please see the CONTRIBURING.md file.
+## Donations
+If you find this project useful it would be great if you could support me by sending a couple quid my way. Thanks :D
 
 # Important
 Please make sure to do your research, follow local guidelines, take appropriate precautions, and audit this code yourself as there may be edge case scenarios that I haven't accounted for.
 
 The starter functions have NO FEEDBACK, in my case this isn't important because I have it set up to use the starter switch and this has appropriate fail-safes in place such as: side stand detection, gear & clutch detection so it won't start if it is unsafe to do so.
 
-Also never wire a relay directly to the starter, the starter motor can draw hundreds of amps and will melt anything not durable enough... instead tap into the starter switch ensuring that it has appropriate fail-safes.
+Also never wire a relay directly to the starter, the starter motor can draw hundreds of amps and will melt anything not rated for the correct load... instead tap into the starter switch ensuring that it has appropriate fail-safes.
