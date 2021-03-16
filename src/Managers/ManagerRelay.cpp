@@ -29,5 +29,5 @@ bool ManagerRelay::SetEngineState(bool Enable)
 
 bool ManagerRelay::SetAlarmStatusIndicator(bool Activating, LockedOption LockedBy)
 {
-    return HazardsState.PlaySequenceSM(Activating, LockedBy);
+    return HazardsState.ToggleAlarmPattern(Activating, LockedBy);
 }

@@ -19,6 +19,12 @@ class ManagerAlarm : public ManagerBase
 public:
     virtual void Tick(unsigned long DeltaTime) override;
 
+    ManagerAlarm(ManagerRelay *RelayManager)
+    {
+        this->RelayManager = RelayManager;
+        bReady = true;
+    };
+
     void AlarmISR();
 
     AlarmFail ToggleAlarmPrimed();
@@ -34,11 +40,6 @@ public:
     {
         return AlarmRunning;
     }
-
-    ManagerAlarm(ManagerRelay *InRelayManager)
-    {
-        RelayManager = InRelayManager;
-    };
 
     inline int GetTrippedCounter()
     {
@@ -68,8 +69,8 @@ protected:
     volatile int OldTrippedCounter;
     volatile int TrippedCounter;
 
-    unsigned long previousMillisAlarm;
-    unsigned long previousMillisLastConnection;
+    volatile unsigned long previousMillisAlarm;
+    volatile unsigned long previousMillisLastConnection;
 
     void SetInterrupts(bool State);
 

@@ -145,13 +145,13 @@ struct Hazards : BlinkBase
         }
     }
 
-    bool PlaySequenceSM(bool State, LockedOption InLocked)
+    bool ToggleAlarmPattern(bool State, LockedOption InLocked)
     {
         if (CanChangeStatus(InLocked)) /* Alarm can force override on all */
         {
-            SetBlink(false, InLocked);
+            SetBlink(false, InLocked); // Turn off other blinker states if they are running.
             Locked = InLocked;
-            //previousMillisState = millis();
+
             if (State)
             {
                 BlinkArmPattern = true;
@@ -287,10 +287,6 @@ public:
     bool SetEngineState(bool Enable);
 
     bool SetAlarmStatusIndicator(bool Activating, LockedOption LockedBy);
-
-    ManagerRelay()
-    {
-    }
 
 private:
     Hazards HazardsState;

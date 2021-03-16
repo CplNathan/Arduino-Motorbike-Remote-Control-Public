@@ -1,7 +1,6 @@
 #include "ManagerAlarm.h"
 #include "ManagerRelay.h"
-#include "../SoftwareSerial/SoftwareSerial.h"
-#include "../PCH.h"
+#include "../Helpers.h"
 
 void ManagerAlarm::Tick(unsigned long DeltaTime)
 {
@@ -81,7 +80,6 @@ AlarmFail ManagerAlarm::StopAlarm()
     RelayManager->SetHazardsBlinking(false, LockedOption::LockedAlarm);
     RelayManager->SetHornBlinking(false, LockedOption::LockedAlarm);
     SetInterrupts(AlarmPrimed);
-    
 
     return AlarmFail::AlarmDisarmed;
 }

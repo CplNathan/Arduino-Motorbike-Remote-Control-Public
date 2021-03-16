@@ -24,14 +24,16 @@ class ManagerEngine : public ManagerBase
 public:
     virtual void Tick(unsigned long DeltaTime) override;
 
+    ManagerEngine(ManagerRelay *RelayManager, ManagerAlarm *AlarmManager)
+    {
+        this->RelayManager = RelayManager;
+        this->AlarmManager = AlarmManager;
+
+        bReady = true;
+    };
+
     EngineFail StartEngine();
     EngineFail StopEngine();
-
-    ManagerEngine(ManagerRelay* InRelayManager, ManagerAlarm* InAlarmManager)
-    {
-        RelayManager = InRelayManager;
-        AlarmManager = InAlarmManager;
-    };
 
     inline bool IsEngineRunning()
     {
@@ -44,8 +46,8 @@ protected:
     bool EngineRunning = false;
 
 private:
-    ManagerRelay* RelayManager;
-    ManagerAlarm* AlarmManager;
+    ManagerRelay *RelayManager;
+    ManagerAlarm *AlarmManager;
 };
 
 #endif

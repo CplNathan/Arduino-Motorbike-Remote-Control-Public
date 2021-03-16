@@ -18,9 +18,6 @@
 #define HAZARDSA 12
 #define HAZARDSB 13
 
-#define BLUETOOTH_RX 8
-#define BLUETOOTH_TX 9
-
 #define BLUETOOTH_STATE 2
 
 #define ALARM_TRIPA 3
@@ -32,16 +29,15 @@
 * Pins that can trigger the alarm, must be in the range of D0 to D7 (UNO only, unknown for other boards)
 * This can be any inputs asuming they are setup properly in main.
 */
-static const byte AlarmPins[3] =
-{
-   ALARM_TRIPA,
-   ALARM_TRIPB,
-   ALARM_TRIPC
-};
+static const int8_t AlarmPins[3] =
+    {
+        ALARM_TRIPA,
+        ALARM_TRIPB,
+        ALARM_TRIPC};
 static const int AlarmPinsLen = sizeof(AlarmPins);
 
 /*
-* Unused analog pins that can be powered down to save powered
+* Unused analog pins that can be powered down to save power
 */
 static const int lowPins[5] = {A1, A2, A3, A4, A5};
 static const int lowPinsLen = sizeof(lowPins) / sizeof(lowPins[0]);
